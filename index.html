@@ -37,12 +37,12 @@ section:nth-of-type(even){background:var(--creme)}
 
 /* hero */
 .hero{background:var(--creme);padding:64px 0 0;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;column-gap:40px;align-items:start}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;align-items:start}
 .hero .wrap>*{grid-column:1}
-.hero .heroimgs{grid-column:2;grid-row:1/span 7;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.heroimgs img{border-radius:20px;background:#fff;object-fit:cover;width:100%;box-shadow:var(--suave)}
-.heroimgs img:nth-child(1){grid-row:span 2;height:100%}
-.heroimgs img:nth-child(2),.heroimgs img:nth-child(3){aspect-ratio:1}
+.hero .heroimgs{grid-column:2;grid-row:1/span 7;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:start}
+.heroimgs .col{display:grid;gap:12px}
+.heroimgs .col:nth-child(2){margin-top:56px}
+.heroimgs img{border-radius:20px;object-fit:cover;width:100%;aspect-ratio:3/4;background:var(--gray);box-shadow:var(--suave)}
 .hero h1{font-size:clamp(52px,10vw,112px);text-transform:none;letter-spacing:-.04em;line-height:.95}
 .hero h1 span{display:block;color:var(--laranja)}
 .hero p{font-size:20px;max-width:520px;margin:20px 0 24px;color:#4a4a4f}
@@ -57,7 +57,7 @@ section:nth-of-type(even){background:var(--creme)}
 .fita span{display:inline-block;animation:corre 32s linear infinite}
 @keyframes corre{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.fita span{animation:none}}
-@media(max-width:820px){.hero .wrap{display:block}.hero .heroimgs{margin-top:28px}.heroimgs img:nth-child(1){height:auto;aspect-ratio:1}}
+@media(max-width:820px){.hero .wrap{display:block}.hero .heroimgs{margin-top:28px}}
 
 /* botoes */
 .btn{display:inline-block;font:600 16px 'Wix Madefor Display';background:var(--laranja);color:#fff;border:0;padding:14px 28px;border-radius:99px;text-decoration:none;cursor:pointer;transition:background .15s,transform .15s}
@@ -214,7 +214,11 @@ footer p{max-width:620px;color:#ccc}
     <div class="chips">
       <span class="chip">🧊 Linha Modo</span><span class="chip">🎋 Linha Brisa</span><span class="chip">🧳 Zip Vácuo</span><span class="chip">🧺 Organizadores</span><span class="chip">📦 Kits</span>
     </div>
-    <div class="heroimgs"><img src="img/modo13.jpg" alt="Potes Modo"><img src="img/brisa8.jpg" alt="Kit Brisa"><img src="img/zip10.jpg" alt="Zip Vácuo"></div>
+    <div class="heroimgs">
+      <div class="col"><img src="ig/DbI8BXWgbXU.webp" alt="Creator com os cestos Coza"><img src="ig/DbRTjSqhSH6.webp" alt="Geladeira organizada com a linha Dry"></div>
+      <div class="col"><img src="ig/Dc8zvDvB--w.webp" alt="Mala fechando com o Zip Vácuo"><img src="ig/DdWLd4ERqUq.webp" alt="Despensa organizada com potes herméticos"></div>
+      <div class="col"><img src="ig/DV6OwAQkUXL.webp" alt="Mesa de café posta"><img src="ig/Ddg3CW0FkQi.webp" alt="Mesa posta com a linha Bambu"></div>
+    </div>
     <div class="contagem" aria-label="Contagem regressiva até 27/11">
       <div><b id="cd">--</b><small>dias</small></div>
       <div><b id="ch">--</b><small>horas</small></div>
