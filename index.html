@@ -139,10 +139,41 @@ section{padding:64px 0;border-top:3px solid var(--preto)}
 .oferta{background:var(--laranja);border:3px solid var(--preto);box-shadow:var(--sombra);padding:24px;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
 .oferta b{font-family:'Bricolage Grotesque';font-size:30px;display:block;line-height:1}
 
+
+/* exemplos instagram */
+.reels{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.reel{background:var(--papel);border:3px solid var(--preto);box-shadow:var(--sombra);cursor:pointer;text-align:left;font:inherit;color:inherit;padding:0;display:flex;flex-direction:column}
+.reel .cap{aspect-ratio:9/16;position:relative;border-bottom:3px solid var(--preto);overflow:hidden;background:var(--gray)}
+.reel .cap img{width:100%;height:100%;object-fit:cover}
+.reel .play{position:absolute;inset:auto 10px 10px auto;background:var(--preto);color:var(--creme);width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:18px}
+.reel .likes{position:absolute;top:10px;left:10px;background:var(--laranja);border:2px solid var(--preto);font-weight:700;padding:3px 10px;font-size:14px}
+.reel .info{padding:12px 14px 16px}
+.reel .info b{display:block;font-family:'Bricolage Grotesque';font-size:19px;line-height:1.1;margin-bottom:4px}
+.reel .info span{font-size:14px;line-height:1.35;display:block}
+.reel.top{box-shadow:5px 5px 0 var(--laranja);border-color:var(--laranja-esc)}
+.insight{background:var(--preto);color:var(--creme);padding:22px 24px;margin-bottom:26px;box-shadow:5px 5px 0 var(--laranja);display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.insight b{font-family:'Bricolage Grotesque';font-size:26px;color:var(--laranja);display:block;line-height:1.05;margin-bottom:2px}
+.modal{position:fixed;inset:0;background:rgba(20,20,20,.82);z-index:60;display:none;place-items:center;padding:16px}
+.modal.on{display:grid}
+.modal .box{background:#fff;width:min(420px,100%);border:3px solid var(--preto);position:relative;padding:0;box-shadow:none;margin:0}
+.modal iframe{width:100%;height:min(760px,82vh);border:0;display:block;background:#fff}
+.modal .x{position:absolute;top:-16px;right:-8px;background:var(--laranja);border:3px solid var(--preto);font:700 18px 'DM Sans';width:40px;height:40px;cursor:pointer}
+.modal .ext{display:block;text-align:center;background:var(--preto);color:var(--creme);padding:10px;font-weight:700;text-decoration:none;font-size:14px}
+/* escopo */
+.ph{background:#FFE1E1;color:#C00000;font-weight:700;padding:0 6px;border:1.5px dashed #C00000}
+.escopo{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.escopo div{background:var(--papel);border:3px solid var(--preto);box-shadow:var(--sombra);padding:18px 20px}
+.escopo small{display:block;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:12px;color:var(--laranja-esc);margin-bottom:4px}
+.escopo b{font-family:'Bricolage Grotesque';font-size:22px;line-height:1.1;display:block}
+.marca{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:22px}
+.marca div{border:3px solid var(--preto);padding:18px 20px;background:var(--cristal)}
+.marca div:nth-child(2){background:var(--bambu)}.marca div:nth-child(3){background:var(--rosa)}
+.marca h3{font-size:22px;margin-bottom:6px}
+
 footer{background:var(--preto);color:var(--creme);padding:44px 0;border-top:3px solid var(--preto)}
 footer p{max-width:620px}
-.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--preto);color:var(--creme);padding:10px 18px;font-weight:700;transition:transform .2s;z-index:50}
-.toast.on{transform:translateX(-50%) translateY(0)}
+.toast{visibility:hidden;position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--preto);color:var(--creme);padding:10px 18px;font-weight:700;transition:transform .2s;z-index:50}
+.toast.on{visibility:visible;transform:translateX(-50%) translateY(0)}
 </style>
 </head>
 <body>
@@ -223,6 +254,23 @@ footer p{max-width:620px}
   </div>
 </section>
 
+
+<section id="exemplos">
+  <div class="wrap">
+    <span class="kicker">Referências do Instagram da Coza</span>
+    <h2>O que mais bombou no perfil.</h2>
+    <p class="lead">Puxamos os posts mais curtidos do <b>@cozadesign</b> entre os conteúdos recentes. Clique pra assistir e veja o que se repete.</p>
+    <div class="insight">
+      <div><b>Gente real vence.</b>O post mais curtido tem 771 curtidas e é de uma creator organizadora. Os institucionais ficam bem abaixo.</div>
+      <div><b>Antes e depois.</b>Despensa com saquinho grampeado virando potes herméticos: o contraste faz o trabalho.</div>
+      <div><b>Reação e energia.</b>Os vídeos de creators têm cara de surpresa, brincadeira e humor. Ninguém lê roteiro.</div>
+      <div><b>Zip Vácuo na mala.</b>Cena de "não fecha" resolvida aparece entre os mais curtidos.</div>
+    </div>
+    <div class="reels" id="reels"></div>
+    <p class="nota">Curtidas lidas em 05/10/2026 entre os posts recentes visíveis do perfil. Use como inspiração de ritmo e ideia, nunca copie o vídeo.</p>
+  </div>
+</section>
+
 <section id="formatos" style="background:var(--papel)">
   <div class="wrap">
     <span class="kicker">Formatos de vídeo</span>
@@ -249,7 +297,9 @@ footer p{max-width:620px}
         <li>Dizer "link na bio" e escrever coza.com.br</li>
         <li>Falar do seu uso real, no seu tom de indicação</li>
         <li>Vertical 9:16, legenda queimada, primeiro frame forte</li>
-        <li>Marcar @coza e usar o link/cupom que a gente te passar</li>
+        <li>Falar o nome completo do produto (ex: Pote Hermético Coza Modo 1,8L)</li>
+        <li>Legendar todos os vídeos e usar só trilha livre de direitos</li>
+        <li>Marcar a Coza e usar o link/cupom que a gente te passar</li>
       </ul></div>
       <div class="caixa nao"><h3>Evita</h3><ul>
         <li>Abrir com "oi gente, hoje vou mostrar..."</li>
@@ -257,9 +307,34 @@ footer p{max-width:620px}
         <li>Falar de estoque ou prazo que você não conferiu</li>
         <li>Vídeo sem preço, sem oferta ou sem site</li>
         <li>Mostrar produto de outra marca no enquadramento</li>
-        <li>Postar antes da data combinada da fase</li>
+        <li>Postar antes ou depois da data combinada da fase</li>
+        <li>Tampar a marca ou o nome do produto</li>
+        <li>Conteúdo político ou termos pejorativos atrelados à marca</li>
       </ul></div>
     </div>
+  </div>
+</section>
+
+
+<section id="escopo">
+  <div class="wrap">
+    <span class="kicker">Escopo e combinados</span>
+    <h2>O que você entrega.</h2>
+    <p class="lead">Itens em <span class="ph">vermelho</span> serão confirmados pela Coza antes do kickoff.</p>
+    <div class="escopo">
+      <div><small>Reels</small><b><span class="ph">X</span> Reels com 2 versões de gancho (A e B)</b></div>
+      <div><small>Stories</small><b><span class="ph">X</span> combo de stories com link</b></div>
+      <div><small>Link e cupom</small><b>Link com UTM seu + cupom <span class="ph">XXXX se liberado</span></b></div>
+      <div><small>Repost da marca</small><b>Direito de repost por <span class="ph">XX</span> dias</b></div>
+      <div><small>Exclusividade</small><b><span class="ph">sem / XXXX</span></b></div>
+      <div><small>Anúncio pago</small><b>Partnership Ads pelo seu perfil: <span class="ph">sim ou não</span></b></div>
+    </div>
+    <div class="marca">
+      <div><h3>📅 Data de publicação</h3><p><span class="ph">XXXX</span></p></div>
+      <div><h3>🏷️ Marcações</h3><p><span class="ph">@XXXX da Coza</span> · Collab: <span class="ph">XXXX</span></p></div>
+      <div><h3>#️⃣ Hashtags</h3><p><span class="ph">#XXXX</span></p></div>
+    </div>
+    <div class="oferta" style="margin-top:22px"><div><b>Oferta da Black</b><span class="ph">XXXX desconto, frete grátis, kit e prazo</span></div><div><b>Tom de voz</b>Natural, de indicação e com leveza</div></div>
   </div>
 </section>
 
@@ -291,6 +366,7 @@ footer p{max-width:620px}
     <p>Dúvida de roteiro, produto ou prazo? Chama no WhatsApp da campanha. Briefing sujeito a ajuste fino no kickoff, a versão mais nova sempre fica nesta página.</p>
   </div>
 </footer>
+<div class="modal" id="modal"><div class="box"><button class="x" aria-label="Fechar">✕</button><iframe id="mframe" title="Reel do Instagram" src="about:blank" loading="lazy"></iframe><a class="ext" id="mlink" target="_blank" rel="noopener">abrir no Instagram ↗</a></div></div>
 <div class="toast" id="toast">copiado ✅</div>
 
 <script>
@@ -360,6 +436,29 @@ document.getElementById('formatosGrid').innerHTML = FORMATOS.map((f,i) => `
   <div class="in"><b>Roteiro:</b><ol>${f.passos.map(p=>`<li>${p}</li>`).join('')}</ol>
    ${f.g.map(g=>`<div class="gancho"><b>Gancho</b>${g}<button data-gancho="${g.replace(/"/g,'&quot;')}">copiar</button></div>`).join('')}</div>
  </article>`).join('');
+
+
+const REELS = [
+ {c:'DdWLd4ERqUq',l:771,top:1,t:'Despensa: saquinho vira pote',d:'Creator organizadora troca saquinhos de grampinho por potes herméticos. O melhor do perfil, de longe.',u:'@priscilasaboiaorganizer'},
+ {c:'Dc8zvDvB--w',l:98,t:'Mala que não fecha',d:'Zip Vácuo resolvendo a mala cheia. Ação física, resultado visível.',u:'@cozadesign'},
+ {c:'DbRTjSqhSH6',l:85,t:'Geladeira com a linha Dry',d:'Morangos no lugar certo, creator reagindo ao vivo.',u:'@cozadesign'},
+ {c:'DbI8BXWgbXU',l:113,t:'Lavanderia com cesto',d:'Creator brincando com os cestos, energia lá em cima.',u:'@cozadesign'},
+ {c:'DdCodtuReFZ',l:82,t:'Cesto Puffer na decoração',d:'Organizar sem perder o estilo da casa.',u:'@cozadesign'},
+ {c:'Ddm-P_BxFgw',l:71,t:'"O que guardar no pote"',d:'Lista visual, formato fácil de copiar na ideia.',u:'@cozadesign'},
+ {c:'Ddmx8TpR2_c',l:66,t:'Zip Vácuo em uso',d:'Creator mostrando o saco com ar e sem ar.',u:'@cozadesign'},
+ {c:'Ddg3CW0FkQi',l:54,t:'Mesa posta com bambu',d:'Café da tarde com a linha Bambu, clima de presente.',u:'@cozadesign'}
+].sort((a,b)=>b.l-a.l);
+document.getElementById('reels').innerHTML = REELS.map((r,i)=>`
+ <button class="reel ${i===0?'top':''}" data-code="${r.c}" aria-label="Assistir ${r.t}">
+  <div class="cap"><img loading="lazy" src="ig/${r.c}.webp" alt="${r.t}"><span class="likes">❤ ${r.l}</span><span class="play">▶</span></div>
+  <div class="info"><b>${i===0?'🏆 ':''}${r.t}</b><span>${r.d}</span><span style="opacity:.6;margin-top:4px">${r.u}</span></div>
+ </button>`).join('');
+const modal=document.getElementById('modal'),mf=document.getElementById('mframe'),ml=document.getElementById('mlink');
+document.getElementById('reels').addEventListener('click',e=>{const b=e.target.closest('.reel');if(!b)return;
+  mf.src=`https://www.instagram.com/p/${b.dataset.code}/embed/`;ml.href=`https://www.instagram.com/p/${b.dataset.code}/`;modal.classList.add('on');});
+function fecha(){modal.classList.remove('on');mf.src='about:blank'}
+modal.addEventListener('click',e=>{if(e.target===modal||e.target.classList.contains('x'))fecha()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')fecha()});
 
 /* ===== contagem ===== */
 function tick(){
