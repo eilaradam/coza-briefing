@@ -192,6 +192,28 @@ section:nth-of-type(even){background:var(--creme)}
 .marca div:nth-child(2){background:var(--bambu)}.marca div:nth-child(3){background:var(--rosa)}
 .marca h3{font-size:20px;margin-bottom:6px}
 
+
+/* checklist */
+.prog{background:#fff;border-radius:99px;padding:6px;display:flex;align-items:center;gap:14px;margin-bottom:26px;box-shadow:var(--suave);max-width:520px}
+.prog .bar{flex:1;height:10px;background:var(--gray);border-radius:99px;overflow:hidden}
+.prog .bar i{display:block;height:100%;width:0;background:var(--laranja);border-radius:99px;transition:width .25s}
+.prog b{font-size:14px;padding-right:12px;white-space:nowrap}
+.checks{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+.chk-card{background:#fff;border-radius:20px;padding:24px 24px 18px;box-shadow:var(--suave)}
+.chk-card header{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.chk-card header .n{width:34px;height:34px;border-radius:50%;background:var(--preto);color:#fff;display:grid;place-items:center;font-weight:700;font-size:15px;flex:none}
+.chk-card h3{font-size:21px;line-height:1.15}
+.chk-card h3 small{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--laranja-esc);font-weight:700;margin-bottom:2px}
+.chk-card label{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--linha);cursor:pointer;font-size:16px;line-height:1.4}
+.chk-card input{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:2px solid #c8c8cd;border-radius:7px;flex:none;margin-top:1px;cursor:pointer;display:grid;place-items:center;transition:all .12s;background:#fff}
+.chk-card input:checked{background:var(--laranja);border-color:var(--laranja)}
+.chk-card input:checked::after{content:"✓";color:#fff;font-size:14px;font-weight:700;line-height:1}
+.chk-card input:checked+span{color:#9a9aa0;text-decoration:line-through}
+.chk-card .bonus{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--bambu);border-radius:99px;padding:2px 9px;margin-left:6px;white-space:nowrap}
+.chk-card .nt{margin-top:8px;padding:12px 14px;background:var(--creme);border-radius:12px;font-size:14px;color:#55555a}
+.chk-card.alerta{background:var(--rosa);box-shadow:none}
+.chk-card.alerta label{border-color:rgba(0,0,0,.08)}
+
 footer{background:#050608;color:#fff;padding:56px 0}
 footer h2{color:#fff}
 footer p{max-width:620px;color:#ccc}
@@ -305,6 +327,16 @@ footer p{max-width:620px;color:#ccc}
     <h2>Seis jeitos de vender em 30 segundos.</h2>
     <p class="lead">Escolha o que combina com o seu perfil. Cada creator entrega <b>1 Reels</b>. Escolha o formato que combina com o seu perfil.</p>
     <div class="formatos" id="formatosGrid"></div>
+  </div>
+</section>
+
+<section id="checklist">
+  <div class="wrap">
+    <span class="kicker">Checklist de conversão</span>
+    <h2>Roteiro de Black Friday,<br>na ordem em que você usa.</h2>
+    <p class="lead">Marque conforme avança. Conversão depende de precisão: se faltar um item, o vídeo perde força.</p>
+    <div class="prog"><div class="bar"><i id="progBar"></i></div><b id="progTxt">0 de 0</b></div>
+    <div class="checks" id="checks"></div>
   </div>
 </section>
 
@@ -482,6 +514,30 @@ document.getElementById('reels').addEventListener('click',e=>{const b=e.target.c
 function fecha(){modal.classList.remove('on');mf.src='about:blank'}
 modal.addEventListener('click',e=>{if(e.target===modal||e.target.classList.contains('x'))fecha()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')fecha()});
+
+
+/* ===== checklist ===== */
+const CHECK = [
+ {em:'📋',k:'Antes de escrever',t:'Informação na mão',i:['Oferta exata: percentual, valor de e valor por','Data e hora de início e de fim','Cupom, se houver, e onde ele é aplicado','Condição de parcelamento e frete','Se o estoque é limitado e quantas unidades','Destino do clique: link na bio, site, perfil ou automação','Frase, hashtag ou menção obrigatória da marca'],nt:'Sem esses dados o roteiro não fecha. A Coza passa tudo no kickoff.'},
+ {em:'⚡',k:'Gancho',t:'Primeiros 3 segundos',i:['A oferta ou a urgência aparece já na primeira frase','O produto aparece na imagem desde o primeiro segundo, mesmo que a fala ainda não cite','O valor ou o percentual entra como texto na tela, porque muita gente assiste sem som']},
+ {em:'🎬',k:'Corpo',t:'Mostre e recomende',i:['Quebre uma objeção principal, não cinco','Prova real: demonstração, antes e depois ou uso no dia a dia','Benefício no lugar de característica','Sua opinião no meio, porque recomendação converte mais que descrição']},
+ {em:'🏷️',k:'Oferta',t:'Preço claro',i:['O valor dito em voz alta e escrito na tela ao mesmo tempo','O cupom falado devagar e escrito, letra por letra se for confuso','O prazo dito com clareza: até quando, não “por tempo limitado”','Se o estoque é limitado, diga só se for verdade']},
+ {em:'👆',k:'CTA',t:'Uma ação só',i:['Uma ação só','O passo exato: onde clicar, o que comentar, onde aplicar o cupom','Urgência verdadeira, ancorada na data real']},
+ {em:'⚖️',k:'Compliance',t:'A parte que protege você',alerta:1,i:['O preço de referência precisa ser real, o praticado antes. Desconto em cima de preço inflado é propaganda enganosa, e quem fala em cena é você','Não prometa estoque, entrega ou resultado que a marca não garantiu','Confira a data duas vezes, porque campanha de BF tem data que muda','Sinalize publicidade conforme a regra da plataforma (parceria paga)']},
+ {em:'🎥',k:'Produção',t:'Na hora de gravar',i:['Legenda na tela do começo ao fim','Preço e cupom legíveis, dentro das margens seguras','Grave um take extra de “último dia” no mesmo cenário e roupa, para reeditar na reta final sem regravar tudo',{x:'2 ou 3 versões do gancho para teste em anúncios',b:1}]},
+ {em:'🧹',k:'Depois de publicar',t:'Não deixe vencer',i:['Oferta encerrada precisa sair do ar ou ser atualizada'],nt:'Vídeo com promoção vencida ainda rodando gera reclamação e queima a marca e você.'}
+];
+let CK={};try{CK=JSON.parse(localStorage.getItem('coza_check')||'{}')}catch(e){}
+let total=0;
+document.getElementById('checks').innerHTML=CHECK.map((c,ci)=>`
+ <article class="chk-card ${c.alerta?'alerta':''}">
+  <header><span class="n">${ci+1}</span><h3><small>${c.em} ${c.k}</small>${c.t}</h3></header>
+  ${c.i.map((it,ii)=>{total++;const x=typeof it==='string'?it:it.x,id=ci+'_'+ii;return `<label><input type="checkbox" data-id="${id}" ${CK[id]?'checked':''}><span>${x}${it.b?'<em class="bonus" style="font-style:normal">bônus</em>':''}</span></label>`}).join('')}
+  ${c.nt?`<div class="nt">${c.nt}</div>`:''}
+ </article>`).join('');
+function prog(){const n=document.querySelectorAll('#checks input:checked').length;document.getElementById('progBar').style.width=(n/total*100)+'%';document.getElementById('progTxt').textContent=n+' de '+total}
+document.getElementById('checks').addEventListener('change',e=>{const i=e.target;if(!i.dataset.id)return;CK[i.dataset.id]=i.checked;try{localStorage.setItem('coza_check',JSON.stringify(CK))}catch(x){}prog()});
+prog();
 
 /* ===== contagem ===== */
 function tick(){
