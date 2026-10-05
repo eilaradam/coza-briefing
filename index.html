@@ -123,9 +123,6 @@ section:nth-of-type(even){background:var(--creme)}
 .fmt .in{padding:18px 22px 22px}
 .fmt ol{margin:8px 0 14px 20px;font-size:16px;color:#3b3b40}
 .fmt ol li{margin-bottom:4px}
-.gancho{background:var(--creme);border-radius:14px;padding:12px 14px 12px;margin-top:10px;font-size:15px;position:relative;padding-right:84px}
-.gancho b{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px;color:var(--laranja-esc)}
-.gancho button{position:absolute;right:10px;top:10px;font:600 12px 'Wix Madefor Display';border:1px solid var(--linha);background:#fff;border-radius:99px;padding:5px 12px;cursor:pointer}
 
 /* regras */
 .dupla{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
@@ -494,17 +491,13 @@ const COR = {modo:'t-modo',brisa:'t-brisa',zip:'t-zip',org:'t-org'};
 
 const FORMATOS = [
  {em:'🛍️',nome:'Comprinhas da Black',tag:'Indicação · confiança',cor:'var(--cristal)',
-  passos:['Mostra a sacola ou a caixa chegando','Tira peça por peça e diz por que comprou','Nome de cada item na tela','Fecha com o que você mais usa e o site'],
-  g:['Tudo que eu comprei na Coza e por que valeu cada item.']},
+  passos:['Mostra a sacola ou a caixa chegando','Tira peça por peça e diz por que comprou','Nome de cada item na tela','Fecha com o que você mais usa e o site']},
  {em:'🧊',nome:'Antes e depois do armário ou geladeira',tag:'Problema → solução',cor:'var(--laranja)',
-  passos:['Abre mostrando a bagunça real, sem filtro','Corte seco: esvazia tudo','Monta com os potes Modo ou Brisa','Resultado final e o nome do kit usado'],
-  g:['Essa geladeira me dava vergonha.']},
+  passos:['Abre mostrando a bagunça real, sem filtro','Corte seco: esvazia tudo','Monta com os potes Modo ou Brisa','Resultado final e o nome do kit usado']},
  {em:'🧳',nome:'Demonstração do Zip Vácuo',tag:'Prova visual',cor:'var(--rosa)',
-  passos:['Mala ou armário lotado de roupa de inverno','Enche os sacos, usa a bomba, mostra o som','Compara o volume lado a lado','Mostra o kit e o site'],
-  g:['Cabe tudo isso na mesma mala? Cabe.']},
+  passos:['Mala ou armário lotado de roupa de inverno','Enche os sacos, usa a bomba, mostra o som','Compara o volume lado a lado','Mostra o kit e o site']},
  {em:'🧺',nome:'Montei minha cozinha com a Coza',tag:'Desafio · kit completo',cor:'var(--bambu)',
-  passos:['Escolha o ambiente (cozinha, despensa ou geladeira)','Vá mostrando os itens que usou, um por um','Mostre o resultado montado','Feche com o kit e o site'],
-  g:['Montei minha cozinha inteira com a Coza em um dia.']}
+  passos:['Escolha o ambiente (cozinha, despensa ou geladeira)','Vá mostrando os itens que usou, um por um','Mostre o resultado montado','Feche com o kit e o site']}
 ];
 
 /* ===== render ===== */
@@ -530,7 +523,7 @@ document.getElementById('formatosGrid').innerHTML = FORMATOS.map((f,i) => `
  <article class="fmt">
   <header style="background:${f.cor};${f.claro?'color:var(--creme)':''}"><span class="em">${f.em}</span><div><small>${f.tag}</small><h3>${f.nome}</h3></div></header>
   <div class="in"><b>Roteiro:</b><ol>${f.passos.map(p=>`<li>${p}</li>`).join('')}</ol>
-   ${f.g.map(g=>`<div class="gancho"><b>Gancho</b>${g}<button data-gancho="${g.replace(/"/g,'&quot;')}">copiar</button></div>`).join('')}</div>
+</div>
  </article>`).join('');
 
 
@@ -649,7 +642,6 @@ function copiar(txt){
 document.addEventListener('click', e => {
   const b = e.target.closest('button'); if(!b) return;
   if(b.dataset.copy) copiar(document.getElementById(b.dataset.copy).textContent);
-  if(b.dataset.gancho) copiar(b.dataset.gancho);
 });
 </script>
 </body>
