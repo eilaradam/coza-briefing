@@ -285,12 +285,11 @@ footer p{max-width:620px;color:#ccc}
   <div class="wrap">
     <span class="kicker">Calendário</span>
     <h2>A Black cai em 27/11.</h2>
-    <p class="lead">Quatro fases. Seu vídeo pode servir em mais de uma.</p>
+    <p class="lead">Três fases. Seu vídeo pode servir em mais de uma.</p>
     <div class="linha">
       <div class="fase f1" data-ini="2026-11-03" data-fim="2026-11-16"><span class="emoji">✨</span><div class="data">3 a 16/11</div><h3>Aquecimento</h3><p>Mostre o produto resolvendo a bagunça da cozinha e do armário. Convide o público a entrar no Grupo VIP (CozaLovers) antes da oferta.</p></div>
       <div class="fase f2" data-ini="2026-11-17" data-fim="2026-11-24"><span class="emoji">📣</span><div class="data">17 a 24/11</div><h3>Esquenta</h3><p>Anuncie a oferta e a data. É aqui que os anúncios pagos começam a rodar forte.</p></div>
       <div class="fase f3" data-ini="2026-11-25" data-fim="2026-11-30"><span class="emoji">🔥</span><div class="data">25 a 30/11</div><h3>Semana da BF</h3><p>Escreva a oferta na tela, mostre urgência real (estoque ou prazo) e leve direto pro site. Inclui a Cyber Monday.</p></div>
-      <div class="fase f4" data-ini="2026-12-01" data-fim="2026-12-31"><span class="emoji">🎁</span><div class="data">Dezembro</div><h3>Pós</h3><p>Os mesmos vídeos, agora com foco em presente de Natal.</p></div>
     </div>
     
     </div>
@@ -418,7 +417,7 @@ const PRODUTOS = [
  {id:'modo8',t:'modo',tag:'Linha Modo',nome:'Potes Herméticos Modo 8 peças',ang:'Bom pra começar: “montei minha despensa com esse kit”.',de:'192,73',por:'121,02',url:'https://www.coza.com.br/potes/potes-hermeticos/conjunto-de-potes-hermeticos-coza-modo-cristal-8-pecas'},
  {id:'bambu10',t:'modo',tag:'Modo Bambu',nome:'Potes Modo Bambu 10 peças',ang:'Visual de cozinha de revista. Tampa de bambu rende ótimo close.',de:'363,94',por:'226,81',url:'https://www.coza.com.br/potes/potes-hermeticos/conjunto-de-potes-hermeticos-coza-modo-bambu-10-pecas'},
  {id:'crush18',t:'modo',tag:'Laranja Crush',nome:'Pote Modo 1,8L Laranja Crush',ang:'A cor assinatura da Coza. Ótima pra capa e pro primeiro frame.',de:'43,99',por:'31,57',url:'https://www.coza.com.br/cozinha/potes-hermeticos/pote-hermetico-coza-modo-1-8-litros-laranja-crush'},
- {id:'brisa8',t:'brisa',tag:'Linha Brisa',nome:'Kit Brisa Mesa Posta 8 peças',ang:'Mesa posta de café da manhã. Bom pra presente de Natal no pós.',de:'534,73',por:'411,56',url:'https://www.coza.com.br/organizacao/compre-por-linha/linha-brisa/kit-organizadores-em-bambu-coza-brisa-mesa-posta-8-pecas'},
+ {id:'brisa8',t:'brisa',tag:'Linha Brisa',nome:'Kit Brisa Mesa Posta 8 peças',ang:'Mesa posta de café da manhã, com cara de presente.',de:'534,73',por:'411,56',url:'https://www.coza.com.br/organizacao/compre-por-linha/linha-brisa/kit-organizadores-em-bambu-coza-brisa-mesa-posta-8-pecas'},
  {id:'zip10',t:'zip',tag:'Zip Vácuo',nome:'Kit Zip Vácuo 10 peças + bomba',ang:'Mostre o volume: o saco cheio de ar vira uma folha fina.',de:null,por:'79,99',url:'https://www.coza.com.br/organizacao/organizadores-multiuso/kit-saco-a-vacuo-coza-zip-vacuo-60x50cm-e-bomba-manual-10-pecas'},
  {id:'dry6',t:'org',tag:'Organizador',nome:'Organizador de Geladeira Dry 6L',ang:'Gaveta da geladeira antes e depois.',de:'119,99',por:'73,67',url:'https://www.coza.com.br/cozinha/organizadores-de-geladeira/organizador-de-geladeira-com-cesto-6-litros-coza-dry-cristal'},
  {id:'easy4',t:'org',tag:'Organizador',nome:'Porta Mantimentos Easy 4 peças',ang:'Arroz, feijão, macarrão, farinha: despensa em 1 minuto.',de:'156,84',por:'115,78',url:'https://www.coza.com.br/potes/compre-por-linha/linha-easy/conjunto-de-porta-mantimentos-coza-easy-4-pecas'},
@@ -542,13 +541,13 @@ prog();
 
 
 /* ===== designação de conteúdos ===== */
-const FASES=[{k:'f1',n:'Aquecimento',d:'3 a 16/11',e:'✨'},{k:'f2',n:'Esquenta',d:'17 a 24/11',e:'📣'},{k:'f3',n:'Semana da BF',d:'25 a 30/11',e:'🔥'},{k:'f4',n:'Pós',d:'Dezembro',e:'🎁'}];
+const FASES=[{k:'f1',n:'Aquecimento',d:'3 a 16/11',e:'✨'},{k:'f2',n:'Esquenta',d:'17 a 24/11',e:'📣'},{k:'f3',n:'Semana da BF',d:'25 a 30/11',e:'🔥'}];
 const FMT={a:'🧊 Antes e depois',c:'🛍️ Comprinhas da Black',z:'🧳 Demonstração do Zip Vácuo',m:'🧮 Montei minha cozinha com R$ X'};
 const CREATORS=[
  {n:'Cinthia',f:'f1',t:'a'},{n:'Brendon',f:'f1',t:'a'},
  {n:'Jessika Luisa',f:'f2',t:'c'},{n:'Elis Regina',f:'f2',t:'m'},{n:'Prissila Kieski',f:'f2',t:'z'},
  {n:'Mari Marchon',f:'f3',t:'z'},{n:'Julia Grazina',f:'f3',t:'m'},{n:'Lara Dam',f:'f3',t:'c'},
- {n:'Lorena',f:'f4',t:'c'},{n:'Dhiovanna',f:'f4',t:'m'}
+ {n:'Lorena',f:'f1',t:'c'},{n:'Dhiovanna',f:'f2',t:'m'}
 ];
 document.getElementById('desig').innerHTML=FASES.map(f=>`
  <div class="dcol ${f.k}"><div class="dh"><small>${f.e} ${f.d}</small><h3>${f.n}</h3></div>
