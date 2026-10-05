@@ -109,8 +109,6 @@ section:nth-of-type(even){background:var(--creme)}
 .prod .corpo{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
 .prod h3{font-size:18px;line-height:1.2}
 .prod .ang{font-size:15px;flex:1;color:#55555a}
-.prod .preco{font-weight:700;font-size:19px}
-.prod .preco s{font-weight:400;color:#999;margin-right:8px;font-size:15px}
 .prod a.ver{font-weight:600;font-size:14px;color:var(--laranja-esc);text-decoration:none}
 .t-modo{background:var(--cristal)}.t-brisa{background:var(--bambu)}.t-zip{background:var(--rosa)}.t-org{background:var(--verde)}.t-crush{background:var(--laranja)}
 .nota{font-size:14px;margin-top:20px;color:#7a7a80}
@@ -275,7 +273,7 @@ footer p{max-width:620px;color:#ccc}
     <div class="passos">
       <div class="passo"><div class="n">1</div><h3>O problema</h3><p>A bagunça real: armário que não fecha, geladeira de pote torto, mala que não fecha.</p></div>
       <div class="passo"><div class="n">2</div><h3>O produto resolvendo</h3><p>Mostra na mão, em uso. Antes e depois, volume sumindo, pote encaixando.</p></div>
-      <div class="passo"><div class="n">3</div><h3>O preço ou a oferta</h3><p>Escrito na tela. Número concreto converte mais que "tá barato".</p></div>
+      <div class="passo"><div class="n">3</div><h3>A oferta</h3><p>Escrita na tela, com a data até quando vale.</p></div>
       <div class="passo"><div class="n">4</div><h3>O site</h3><p>Fale e escreva onde comprar: <b>coza.com.br</b>. Mencione o site durante o CTA, a chamada final do vídeo.</p></div>
     </div>
   </div>
@@ -318,7 +316,7 @@ footer p{max-width:620px;color:#ccc}
       <button aria-pressed="false" data-f="org">🧺 Organizadores</button>
     </div>
     <div class="carrossel"><div class="setas"><span>arraste para o lado →</span><button type="button" id="prev" aria-label="Anterior">‹</button><button type="button" id="next" aria-label="Próximo">›</button></div><div class="grade" id="grade"></div></div>
-    <p class="nota">Preços do site oficial em 05/10/2026. A oferta da Black é a que a Coza passar no alinhamento inicial.</p>
+    <p class="nota">A oferta da Black é a que a Coza passar no alinhamento inicial.</p>
   </div>
 </section>
 
@@ -413,40 +411,39 @@ const BF = new Date('2026-11-27T00:00:00-03:00');
 const SITE = 'https://www.coza.com.br/black-coza';
 
 const PRODUTOS = [
- {id:'modo13',t:'modo',tag:'Linha Modo',nome:'Conjunto Modular Modo 13 peças',ang:'O mais impactante pra antes e depois de armário. Encaixa em tudo.',de:'438,38',por:'284,98',url:'https://www.coza.com.br/potes/potes-hermeticos/conjunto-de-potes-hermeticos-modular-coza-modo-cristal-13-pecas'},
- {id:'modo8',t:'modo',tag:'Linha Modo',nome:'Potes Herméticos Modo 8 peças',ang:'Bom pra começar: “montei minha despensa com esse kit”.',de:'192,73',por:'121,02',url:'https://www.coza.com.br/potes/potes-hermeticos/conjunto-de-potes-hermeticos-coza-modo-cristal-8-pecas'},
- {id:'bambu10',t:'modo',tag:'Modo Bambu',nome:'Potes Modo Bambu 10 peças',ang:'Visual de cozinha de revista. Tampa de bambu rende ótimo close.',de:'363,94',por:'226,81',url:'https://www.coza.com.br/potes/potes-hermeticos/conjunto-de-potes-hermeticos-coza-modo-bambu-10-pecas'},
- {id:'crush18',t:'modo',tag:'Laranja Crush',nome:'Pote Modo 1,8L Laranja Crush',ang:'A cor assinatura da Coza. Ótima pra capa e pro primeiro frame.',de:'43,99',por:'31,57',url:'https://www.coza.com.br/cozinha/potes-hermeticos/pote-hermetico-coza-modo-1-8-litros-laranja-crush'},
- {id:'brisa8',t:'brisa',tag:'Linha Brisa',nome:'Kit Brisa Mesa Posta 8 peças',ang:'Mesa posta de café da manhã, com cara de presente.',de:'534,73',por:'411,56',url:'https://www.coza.com.br/organizacao/compre-por-linha/linha-brisa/kit-organizadores-em-bambu-coza-brisa-mesa-posta-8-pecas'},
- {id:'zip10',t:'zip',tag:'Zip Vácuo',nome:'Kit Zip Vácuo 10 peças + bomba',ang:'Mostre o volume: o saco cheio de ar vira uma folha fina.',de:null,por:'79,99',url:'https://www.coza.com.br/organizacao/organizadores-multiuso/kit-saco-a-vacuo-coza-zip-vacuo-60x50cm-e-bomba-manual-10-pecas'},
- {id:'dry6',t:'org',tag:'Organizador',nome:'Organizador de Geladeira Dry 6L',ang:'Gaveta da geladeira antes e depois.',de:'119,99',por:'73,67',url:'https://www.coza.com.br/cozinha/organizadores-de-geladeira/organizador-de-geladeira-com-cesto-6-litros-coza-dry-cristal'},
- {id:'easy4',t:'org',tag:'Organizador',nome:'Porta Mantimentos Easy 4 peças',ang:'Arroz, feijão, macarrão, farinha: despensa em 1 minuto.',de:'156,84',por:'115,78',url:'https://www.coza.com.br/potes/compre-por-linha/linha-easy/conjunto-de-porta-mantimentos-coza-easy-4-pecas'},
+ {id:'modo13',t:'modo',tag:'Linha Modo',nome:'Conjunto Modular Modo 13 peças',ang:'O mais impactante pra antes e depois de armário. Encaixa em tudo.',url:'https://www.coza.com.br/potes/potes-hermeticos/conjunto-de-potes-hermeticos-modular-coza-modo-cristal-13-pecas'},
+ {id:'modo8',t:'modo',tag:'Linha Modo',nome:'Potes Herméticos Modo 8 peças',ang:'Bom pra começar: “montei minha despensa com esse kit”.',url:'https://www.coza.com.br/potes/potes-hermeticos/conjunto-de-potes-hermeticos-coza-modo-cristal-8-pecas'},
+ {id:'bambu10',t:'modo',tag:'Modo Bambu',nome:'Potes Modo Bambu 10 peças',ang:'Visual de cozinha de revista. Tampa de bambu rende ótimo close.',url:'https://www.coza.com.br/potes/potes-hermeticos/conjunto-de-potes-hermeticos-coza-modo-bambu-10-pecas'},
+ {id:'crush18',t:'modo',tag:'Laranja Crush',nome:'Pote Modo 1,8L Laranja Crush',ang:'A cor assinatura da Coza. Ótima pra capa e pro primeiro frame.',url:'https://www.coza.com.br/cozinha/potes-hermeticos/pote-hermetico-coza-modo-1-8-litros-laranja-crush'},
+ {id:'brisa8',t:'brisa',tag:'Linha Brisa',nome:'Kit Brisa Mesa Posta 8 peças',ang:'Mesa posta de café da manhã, com cara de presente.',url:'https://www.coza.com.br/organizacao/compre-por-linha/linha-brisa/kit-organizadores-em-bambu-coza-brisa-mesa-posta-8-pecas'},
+ {id:'zip10',t:'zip',tag:'Zip Vácuo',nome:'Kit Zip Vácuo 10 peças + bomba',ang:'Mostre o volume: o saco cheio de ar vira uma folha fina.',url:'https://www.coza.com.br/organizacao/organizadores-multiuso/kit-saco-a-vacuo-coza-zip-vacuo-60x50cm-e-bomba-manual-10-pecas'},
+ {id:'dry6',t:'org',tag:'Organizador',nome:'Organizador de Geladeira Dry 6L',ang:'Gaveta da geladeira antes e depois.',url:'https://www.coza.com.br/cozinha/organizadores-de-geladeira/organizador-de-geladeira-com-cesto-6-litros-coza-dry-cristal'},
+ {id:'easy4',t:'org',tag:'Organizador',nome:'Porta Mantimentos Easy 4 peças',ang:'Arroz, feijão, macarrão, farinha: despensa em 1 minuto.',url:'https://www.coza.com.br/potes/compre-por-linha/linha-easy/conjunto-de-porta-mantimentos-coza-easy-4-pecas'},
 ];
 const IMG = {dry6:'img/dry6.png'};
 const COR = {modo:'t-modo',brisa:'t-brisa',zip:'t-zip',org:'t-org'};
 
 const FORMATOS = [
  {em:'🛍️',nome:'Comprinhas da Black',tag:'Indicação · confiança',cor:'var(--cristal)',
-  passos:['Mostra a sacola ou a caixa chegando','Tira peça por peça e diz por que comprou','Preço de cada uma na tela','Fecha com o total e o site'],
-  g:['Gastei R$X na Black da Coza e não me arrependi de nada.']},
+  passos:['Mostra a sacola ou a caixa chegando','Tira peça por peça e diz por que comprou','Nome de cada item na tela','Fecha com o que você mais usa e o site'],
+  g:['Tudo que eu comprei na Coza e por que valeu cada item.']},
  {em:'🧊',nome:'Antes e depois do armário ou geladeira',tag:'Problema → solução',cor:'var(--laranja)',
-  passos:['Abre mostrando a bagunça real, sem filtro','Corte seco: esvazia tudo','Monta com os potes Modo ou Brisa','Resultado final e o kit usado com preço'],
+  passos:['Abre mostrando a bagunça real, sem filtro','Corte seco: esvazia tudo','Monta com os potes Modo ou Brisa','Resultado final e o nome do kit usado'],
   g:['Essa geladeira me dava vergonha.']},
  {em:'🧳',nome:'Demonstração do Zip Vácuo',tag:'Prova visual',cor:'var(--rosa)',
-  passos:['Mala ou armário lotado de roupa de inverno','Enche os sacos, usa a bomba, mostra o som','Compara o volume lado a lado','Mostra o kit, o preço e o site'],
+  passos:['Mala ou armário lotado de roupa de inverno','Enche os sacos, usa a bomba, mostra o som','Compara o volume lado a lado','Mostra o kit e o site'],
   g:['Cabe tudo isso na mesma mala? Cabe.']},
- {em:'🧮',nome:'Montei minha cozinha com R$X',tag:'Desafio · ticket alto',cor:'var(--bambu)',
-  passos:['Define o valor no gancho (ex: R$300)','Vai somando os itens na tela, um por um','Mostra o resultado montado','Total final, economia e site'],
-  g:['Montei minha cozinha inteira com R$300 na Black da Coza.']}
+ {em:'🧺',nome:'Montei minha cozinha com a Coza',tag:'Desafio · kit completo',cor:'var(--bambu)',
+  passos:['Escolha o ambiente (cozinha, despensa ou geladeira)','Vá mostrando os itens que usou, um por um','Mostre o resultado montado','Feche com o kit e o site'],
+  g:['Montei minha cozinha inteira com a Coza em um dia.']}
 ];
 
 /* ===== render ===== */
-const brl = v => 'R$ ' + v;
 document.getElementById('grade').innerHTML = PRODUTOS.map(p => `
  <article class="prod" data-t="${p.t}">
   <div class="foto ${COR[p.t]}"><img loading="lazy" src="${IMG[p.id]||'img/'+p.id+'.jpg'}" alt="${p.nome}"><span class="tag ${COR[p.t]}">${p.tag}</span></div>
   <div class="corpo"><h3>${p.nome}</h3><p class="ang">${p.ang}</p>
-   <div class="preco">${p.de?`<s>${brl(p.de)}</s>`:''}${brl(p.por)}</div>
+   
    <a class="ver" href="${p.url}" target="_blank" rel="noopener">ver no site →</a></div>
  </article>`).join('');
 
@@ -505,12 +502,12 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')fecha()});
 
 /* ===== checklist ===== */
 const CHECK = [
- {em:'📋',k:'Antes de escrever',t:'Confirme com a Coza',i:['Preço de antes e preço de agora','Dia e hora em que a oferta começa e termina','Cupom, se tiver, e onde usar','Frete, parcelamento e se o estoque é limitado'],nt:'Sem essas informações o roteiro não fecha. A Coza passa tudo no alinhamento inicial.'},
- {em:'⚡',k:'Gancho',t:'Primeiros 3 segundos',i:['Fale da oferta ou da urgência logo na primeira frase, com o produto já na imagem','Escreva o preço ou o desconto na tela, porque muita gente assiste sem som']},
+ {em:'📋',k:'Antes de escrever',t:'Confirme com a Coza',i:['Dia e hora em que a oferta começa e termina','Cupom, se tiver, e onde usar','Frete, parcelamento e se o estoque é limitado'],nt:'Sem essas informações o roteiro não fecha. A Coza passa tudo no alinhamento inicial.'},
+ {em:'⚡',k:'Gancho',t:'Primeiros 3 segundos',i:['Fale da oferta ou da urgência logo na primeira frase, com o produto já na imagem','Escreva a oferta na tela, porque muita gente assiste sem som']},
  {em:'🎬',k:'Corpo',t:'Mostre e recomende',i:['Resolva um problema só e mostre na prática (demonstração ou antes e depois)','Fale do benefício, não da característica, e dê a sua opinião']},
- {em:'🏷️',k:'Oferta e chamada final',t:'Preço claro, uma ação só',i:['Preço e cupom: fale e escreva na tela ao mesmo tempo','Diga até quando vale, com data. Evite “por tempo limitado”','Peça uma ação só e diga o passo exato (ex: clique no link da bio)']},
- {em:'⚖️',k:'Cuidados',t:'Pra você não ter problema',alerta:1,i:['Use o preço de antes que a Coza realmente praticava. Desconto em cima de preço inflado é propaganda enganosa','Não prometa estoque, entrega ou resultado que a Coza não garantiu','Confira a data duas vezes e avise que é publicidade (parceria paga)']},
- {em:'🎥',k:'Gravar e encerrar',t:'Produção e depois',i:['Legenda do começo ao fim, com preço e cupom bem legíveis na tela','Grave um trecho extra de “último dia”, no mesmo cenário e roupa, pra trocar na reta final sem regravar','Quando a oferta acabar, tire o vídeo do ar ou atualize']}
+ {em:'🏷️',k:'Oferta e chamada final',t:'Oferta clara, uma ação só',i:['Oferta e cupom: fale e escreva na tela ao mesmo tempo','Diga até quando vale, com data. Evite “por tempo limitado”','Peça uma ação só e diga o passo exato (ex: clique no link da bio)']},
+ {em:'⚖️',k:'Cuidados',t:'Pra você não ter problema',alerta:1,i:['Fale só da oferta, do estoque e da entrega que a Coza confirmou, sem prometer resultado','Confira a data duas vezes e avise que é publicidade (parceria paga)']},
+ {em:'🎥',k:'Gravar e encerrar',t:'Produção e depois',i:['Legenda do começo ao fim, com a oferta e o cupom bem legíveis na tela','Grave um trecho extra de “último dia”, no mesmo cenário e roupa, pra trocar na reta final sem regravar','Quando a oferta acabar, tire o vídeo do ar ou atualize']}
 ];
 let CK={};try{CK=JSON.parse(localStorage.getItem('coza_check')||'{}')}catch(e){}
 let total=0;
@@ -541,7 +538,7 @@ prog();
 
 /* ===== designação de conteúdos ===== */
 const FASES=[{k:'f1',n:'Aquecimento',d:'3 a 16/11',e:'✨'},{k:'f2',n:'Esquenta',d:'17 a 24/11',e:'📣'},{k:'f3',n:'Semana da BF',d:'25 a 30/11',e:'🔥'}];
-const FMT={a:'🧊 Antes e depois',c:'🛍️ Comprinhas da Black',z:'🧳 Demonstração do Zip Vácuo',m:'🧮 Montei minha cozinha com R$ X'};
+const FMT={a:'🧊 Antes e depois',c:'🛍️ Comprinhas da Black',z:'🧳 Demonstração do Zip Vácuo',m:'🧺 Montei minha cozinha com a Coza'};
 const CREATORS=[
  {n:'Cinthia',f:'f1',t:'a'},{n:'Brendon',f:'f1',t:'a'},
  {n:'Jessika Luisa',f:'f2',t:'c'},{n:'Elis Regina',f:'f2',t:'m'},{n:'Prissila Kieski',f:'f2',t:'z'},
