@@ -181,7 +181,7 @@ section:nth-of-type(even){background:var(--creme)}
 
 /* escopo */
 .ph{background:#FFE9E9;color:#C23A38;font-weight:700;padding:1px 8px;border-radius:6px}
-.escopo{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.escopo{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .escopo div{background:#fff;border-radius:20px;padding:22px 24px;box-shadow:var(--suave)}
 .escopo small{display:block;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--laranja-esc);margin-bottom:6px}
 .escopo b{font-size:19px;line-height:1.25;display:block;font-weight:600}
@@ -348,7 +348,7 @@ footer p{max-width:620px;color:#ccc}
   <div class="wrap">
     <span class="kicker">Calendário</span>
     <h2>A Black cai em 27/11.</h2>
-    <p class="lead">Três fases. Seu vídeo pode servir em mais de uma.</p>
+    <p class="lead">A Coza publica em três fases. Seu vídeo entra na fase indicada pra você.</p>
     <div class="linha">
       <div class="fase f1" data-ini="2026-11-03" data-fim="2026-11-16"><span class="emoji">✨</span><div class="data">3 a 16/11</div><h3>Aquecimento</h3><p>Mostre o produto resolvendo a bagunça da cozinha e do armário. Convide o público a entrar no Grupo VIP antes da oferta.</p></div>
       <div class="fase f2" data-ini="2026-11-17" data-fim="2026-11-24"><span class="emoji">📣</span><div class="data">17 a 24/11</div><h3>Esquenta</h3><p>Anuncie a oferta e a data. É aqui que os anúncios pagos começam a rodar forte.</p></div>
@@ -363,7 +363,7 @@ footer p{max-width:620px;color:#ccc}
   <div class="wrap">
     <span class="kicker">Quem faz o quê</span>
     <h2>Cada creator, um conteúdo.</h2>
-    <p class="lead">Veja em qual fase você posta e qual formato é o seu. Todas entregam o vídeo até 12/10.</p>
+    <p class="lead">Veja em qual fase a Coza vai publicar o seu vídeo e qual formato é o seu. Todas entregam o vídeo até 12/10.</p>
     <div class="desig" id="desig"></div>
   </div>
 </section>
@@ -426,14 +426,14 @@ footer p{max-width:620px;color:#ccc}
         <li>Falar o nome completo do produto (ex: Pote Hermético Coza Modo 1,8L)</li>
         <li>Vertical 9:16, legenda na tela e primeiro frame forte</li>
         <li>Usar o seu tom, de indicação</li>
-        <li>Marcar a Coza e usar o link e cupom que passarmos</li>
+        <li>Aceitar o convite de collab quando a Coza publicar</li>
       </ul></div>
       <div class="caixa nao"><h3>Evita</h3><ul>
         <li>Abrir com “oi gente, hoje vou mostrar...”</li>
         <li>Prometer desconto ou estoque que a Coza não confirmou</li>
         <li>Produto de outra marca no enquadramento</li>
         <li>Tampar a marca ou o nome do produto</li>
-        <li>Postar fora da data combinada</li>
+        <li>Postar o vídeo no seu perfil antes da Coza publicar</li>
       </ul></div>
     </div>
   </div>
@@ -447,15 +447,12 @@ footer p{max-width:620px;color:#ccc}
     <p class="lead">Os combinados da campanha, de forma direta.</p>
     <div class="escopo">
       <div><small>Entrega</small><b>1 Reels</b></div>
-      <div><small>Link de compra</small><b>Será liberado pela Coza</b></div>
-      <div><small>Repost da marca</small><b>60 dias de direito de repost</b></div>
       <div><small>Exclusividade</small><b>Sem exclusividade</b></div>
       <div><small>Anúncio pago</small><b>Partnership Ads: sim</b></div>
       <div><small>Data de entrega</small><b>Até 12/10</b></div>
     </div>
     <div class="marca">
-      <div><h3>🏷️ Marcação oficial</h3><p>Marque o Instagram oficial da Coza: <b>@cozadesign</b></p></div>
-      <div><h3>#️⃣ Hashtags</h3><p>Sem hashtag obrigatória.</p></div>
+      <div><h3>🤝 Collab</h3><p>A Coza publica o vídeo no <b>@cozadesign</b> e convida você pra collab. É só aceitar.</p></div>
     </div>
     <div class="oferta" style="margin-top:22px"><div><b>Oferta da Black</b>divulgada pela Coza no alinhamento inicial</div><div><b>Tom de voz</b>Natural, de indicação e com leveza</div></div>
   </div>
@@ -568,7 +565,7 @@ const CHECK = [
  {em:'⚡',k:'Gancho',t:'Primeiros 3 segundos',i:['Fale da oferta ou da urgência logo na primeira frase, com o produto já na imagem','Escreva a oferta na tela, porque muita gente assiste sem som']},
  {em:'🎬',k:'Corpo',t:'Mostre e recomende',i:['Resolva um problema só e mostre na prática (demonstração ou antes e depois)','Fale do benefício, não da característica, e dê a sua opinião']},
  {em:'🏷️',k:'Oferta e chamada final',t:'Oferta clara, uma ação só',i:['Oferta e cupom: fale e escreva na tela ao mesmo tempo','Diga até quando vale, com data. Evite “por tempo limitado”','Peça uma ação só e diga o passo exato (ex: clique no link da bio)']},
- {em:'⚖️',k:'Cuidados',t:'Pra você não ter problema',alerta:1,i:['Fale só da oferta, do estoque e da entrega que a Coza confirmou, sem prometer resultado','Confira a data duas vezes e avise que é publicidade (parceria paga)']}
+ {em:'⚖️',k:'Cuidados',t:'Pra você não ter problema',alerta:1,i:['Fale só da oferta, do estoque e da entrega que a Coza confirmou, sem prometer resultado','Confira a data da oferta duas vezes']}
 ];
 let CK={};try{CK=JSON.parse(localStorage.getItem('coza_check')||'{}')}catch(e){}
 let total=0;
