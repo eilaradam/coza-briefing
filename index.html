@@ -283,15 +283,15 @@ footer p{max-width:620px;color:#ccc}
   <div class="wrap">
     <span class="kicker">Referências do Instagram da Coza</span>
     <h2>O que mais bombou no perfil.</h2>
-    <p class="lead">Os <b>vídeos</b> mais curtidos do <b>@cozadesign</b>, orgânicos e impulsionados. Clique pra assistir e veja o que se repete.</p>
+    <p class="lead">Os conteúdos que mais engajaram no <b>@cozadesign</b>, orgânicos e impulsionados. Clique pra assistir e veja o que se repete.</p>
     <div class="insight">
-      <div><b>Creator + comida vence.</b>O maior vídeo é uma collab com creator de receitas: 39,3 mil curtidas, muito acima dos demais.</div>
-      <div><b>Antes e depois.</b>“Sem e com New Retrô” tem 3.612 curtidas: o contraste na prática segura o vídeo.</div>
-      <div><b>Mesa posta.</b>A collab de café da manhã com a Carol Lima Ateliê chega a 2.752.</div>
-      <div><b>Zip Vácuo.</b>Guardar cobertores com o saco a vácuo soma 2.257: problema real resolvido na tela.</div>
+      <div><b>Creator + comida vence.</b>Collab com creator de receitas é o tema que mais engaja no perfil.</div>
+      <div><b>Pergunta que dá identificação.</b>“O que a sua geladeira diz sobre você?” é o post da marca que mais bombou.</div>
+      <div><b>Antes e depois.</b>Sem e com New Retrô e a penteadeira organizada mostram o contraste na prática.</div>
+      <div><b>Mesa posta e café.</b>Linha Brisa no café da manhã e a collab de mesa posta ficam entre os preferidos.</div>
     </div>
     <div class="setas"><span>arraste para o lado →</span><button type="button" id="rprev" aria-label="Anterior">‹</button><button type="button" id="rnext" aria-label="Próximo">›</button></div><div class="reels" id="reels"></div>
-    <p class="nota">Curtidas informadas pela Coza em 05/10/2026, só vídeos. Use como inspiração de ritmo e ideia, nunca copie o vídeo.</p>
+    <p class="nota">Use como inspiração de ritmo e ideia, nunca copie o vídeo.</p>
   </div>
 </section>
 
@@ -467,17 +467,28 @@ document.getElementById('formatosGrid').innerHTML = FORMATOS.map((f,i) => `
 
 const REELS = [
  {c:'DXphcHYARCU',l:'39,3 mil',t:'Mesa de café da tarde com bolo de limão e cachorro-quente',u:'Collab · @vanessacosta.receitas'},
+ {c:'DXE3wThjxqi',l:'5.503',t:'O que a sua geladeira diz sobre você?',u:'Post · pergunta de identificação'},
+ {c:'DWOzMQIgtW4',l:'4.111',t:'Sintomas de quem é apaixonado pela Coza',u:'Post · humor e identificação'},
+ {c:'DXuFXlvlJNT',l:'3.847',t:'Penteadeira organizada com New Retrô',u:'Post · organização de quarto'},
  {c:'DWmniDYANK8',l:'3.612',t:'Antes e depois: sem e com New Retrô',u:'Reel · antes e depois'},
+ {c:'DVL2Y_DGK3G',l:'3.474',t:'Organização da casa no verão',u:'Post · despensa organizada'},
+ {c:'DaDbGLzFe3f',l:'3.375',t:'Curiosidade sobre a linha Puffer',u:'Post · curiosidade'},
+ {c:'DWhd8spme5e',l:'3.289',t:'Institucional: design, qualidade e personalidade',u:'Post · institucional'},
+ {c:'DU0rKcdAd3d',l:'3.286',t:'Linha Brisa no café da manhã',u:'Post · mesa posta'},
+ {c:'DU--amXAcLf',l:'2.784',t:'4 motivos pra amar a Coza',u:'Post · argumentos'},
  {c:'DV6OwAQkUXL',l:'2.752',t:'Mesa de café posta',u:'Collab · @carollima.atelie'},
- {c:'DcZj-sOx0dm',l:'2.257',t:'Saco Zip Vácuo guardando cobertores',u:'Reel · Zip Vácuo'}
+ {c:'DWy2au3FLIc',l:'2.680',t:'Cozinha organizada com New Retrô',u:'Post · cozinha'},
+ {c:'DaF_T8uDymF',l:'2.608',t:'Você pesquisou, a gente respondeu',u:'Post · pergunta e resposta'},
+ {c:'DVt-hwaCdj-',l:'2.265',t:'Tendências das passarelas nos produtos',u:'Post · tendência'},
+ {c:'DcZj-sOx0dm',l:'2.257',t:'Saco Zip Vácuo guardando cobertores',u:'Reel · Zip Vácuo'},
+ {c:'DVYnajsDS0M',l:'2.170',t:'Só entre no site se você ama design',u:'Post · chamada pro site'}
 ];
 document.getElementById('reels').innerHTML = REELS.map((r,i)=>`
- <button class="reel ${i===0?'top':''}" data-code="${r.c}" aria-label="Assistir ${r.t}">
-  <div class="cap"><img loading="lazy" src="ig/${r.c}.webp" alt="${r.t}"><span class="likes">❤ ${r.l}</span><span class="play">▶</span></div>
-  <div class="info"><b>${i===0?'🏆 ':''}${r.t}</b><span style="opacity:.65">${r.u}</span></div>
+ <button class="reel" data-code="${r.c}" aria-label="Assistir ${r.t}">
+  <div class="cap"><img loading="lazy" src="ig/${r.c}.webp" alt="${r.t}"><span class="play">▶</span></div>
+  <div class="info"><b>${r.t}</b><span style="opacity:.65">${r.u}</span></div>
  </button>`).join('');
 const rr=document.getElementById('reels');
-if(rr.scrollWidth<=rr.clientWidth+4)document.querySelector('#exemplos .setas').style.display='none';
 document.getElementById('rprev').onclick=()=>rr.scrollBy({left:-rr.clientWidth*.8});
 document.getElementById('rnext').onclick=()=>rr.scrollBy({left:rr.clientWidth*.8});
 const modal=document.getElementById('modal'),mf=document.getElementById('mframe'),ml=document.getElementById('mlink');
