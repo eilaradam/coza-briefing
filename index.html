@@ -90,7 +90,15 @@ section:nth-of-type(even){background:var(--creme)}
 .filtros{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
 .filtros button{font:600 15px 'Wix Madefor Display';border:1px solid var(--linha);background:#fff;padding:9px 18px;border-radius:99px;cursor:pointer;color:var(--preto)}
 .filtros button[aria-pressed=true]{background:var(--preto);color:#fff;border-color:var(--preto)}
-.grade{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(235px,1fr))}
+.carrossel{position:relative}
+.grade{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 4px 22px;margin:0 -4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.grade::-webkit-scrollbar{display:none}
+.grade .prod{flex:0 0 min(270px,74vw);scroll-snap-align:start}
+.grade .prod[hidden]{display:none}
+.setas{display:flex;gap:10px;justify-content:flex-end;margin-bottom:12px;align-items:center}
+.setas span{margin-right:auto;font-size:14px;color:#7a7a80}
+.setas button{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--preto);background:#fff;font:600 20px 'Wix Madefor Display';cursor:pointer;line-height:1;transition:background .15s,color .15s}
+.setas button:hover{background:var(--laranja);border-color:var(--laranja);color:#fff}
 .prod{background:#fff;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--suave)}
 .prod .foto{aspect-ratio:4/5;background:#fff;position:relative;overflow:hidden}
 .prod .foto img{width:100%;height:100%;object-fit:cover}
@@ -241,12 +249,13 @@ footer p{max-width:620px;color:#ccc}
       <div class="fase f4" data-ini="2026-12-01" data-fim="2026-12-31"><span class="emoji">🎁</span><div class="data">Dezembro</div><h3>Pós</h3><p>Os mesmos criativos com ângulo de presente de Natal.</p></div>
     </div>
     <div class="prazos">
-      <div><b>até 20/10</b>seleção das creators</div>
       <div><b>3 dias</b>roteiro</div>
       <div><b>5 dias</b>gravação</div>
-      <div><b>10/11</b>criativos prontos pra rodar</div>
+      <div><b>aprovações</b>ajustes finos</div>
+      <div><b>até 15/10</b>entrega do vídeo</div>
     </div>
-    <p class="nota">Por que 10/11? O anúncio precisa de alguns dias rodando antes do pico pra descobrir qual criativo performa. Entregou tarde, perdeu o teste.</p>
+    </div>
+    <p class="nota">O anúncio precisa de alguns dias rodando antes do pico pra descobrir qual criativo performa. Entregou tarde, perdeu o teste.</p>
   </div>
 </section>
 
@@ -262,7 +271,7 @@ footer p{max-width:620px;color:#ccc}
       <button aria-pressed="false" data-f="zip">🧳 Zip Vácuo</button>
       <button aria-pressed="false" data-f="org">🧺 Organizadores</button>
     </div>
-    <div class="grade" id="grade"></div>
+    <div class="carrossel"><div class="setas"><span>arraste para o lado →</span><button type="button" id="prev" aria-label="Anterior">‹</button><button type="button" id="next" aria-label="Próximo">›</button></div><div class="grade" id="grade"></div></div>
     <p class="nota">Preços e fotos do site oficial em 05/10/2026, só pra você ter noção. A oferta final da Black é a que a Coza passar no kickoff; use sempre ela na tela.</p>
   </div>
 </section>
@@ -288,7 +297,7 @@ footer p{max-width:620px;color:#ccc}
   <div class="wrap">
     <span class="kicker">Formatos de vídeo</span>
     <h2>Seis jeitos de vender em 30 segundos.</h2>
-    <p class="lead">Escolha o que combina com o seu perfil. Cada creator entrega <b>2 versões do mesmo vídeo com ganchos diferentes</b>, pra Coza testar qual segura mais.</p>
+    <p class="lead">Escolha o que combina com o seu perfil. Cada creator entrega <b>1 Reels</b>. Escolha o formato que combina com o seu perfil.</p>
     <div class="formatos" id="formatosGrid"></div>
   </div>
 </section>
@@ -333,21 +342,20 @@ footer p{max-width:620px;color:#ccc}
   <div class="wrap">
     <span class="kicker">Escopo e combinados</span>
     <h2>O que você entrega.</h2>
-    <p class="lead">Itens em <span class="ph">vermelho</span> serão confirmados pela Coza antes do kickoff.</p>
+    <p class="lead">Os combinados da campanha, de forma direta.</p>
     <div class="escopo">
-      <div><small>Reels</small><b><span class="ph">X</span> Reels com 2 versões de gancho (A e B)</b></div>
-      <div><small>Stories</small><b><span class="ph">X</span> combo de stories com link</b></div>
-      <div><small>Link e cupom</small><b>Link com UTM seu + cupom <span class="ph">XXXX se liberado</span></b></div>
-      <div><small>Repost da marca</small><b>Direito de repost por <span class="ph">XX</span> dias</b></div>
-      <div><small>Exclusividade</small><b><span class="ph">sem / XXXX</span></b></div>
-      <div><small>Anúncio pago</small><b>Partnership Ads pelo seu perfil: <span class="ph">sim ou não</span></b></div>
+      <div><small>Entrega</small><b>1 Reels</b></div>
+      <div><small>Link de compra</small><b>Será liberado pela Coza</b></div>
+      <div><small>Repost da marca</small><b>60 dias de direito de repost</b></div>
+      <div><small>Exclusividade</small><b>Sem exclusividade</b></div>
+      <div><small>Anúncio pago</small><b>Partnership Ads: sim</b></div>
+      <div><small>Data de entrega</small><b>Até 15/10</b></div>
     </div>
     <div class="marca">
-      <div><h3>📅 Data de publicação</h3><p><span class="ph">XXXX</span></p></div>
-      <div><h3>🏷️ Marcações</h3><p><span class="ph">@XXXX da Coza</span> · Collab: <span class="ph">XXXX</span></p></div>
-      <div><h3>#️⃣ Hashtags</h3><p><span class="ph">#XXXX</span></p></div>
+      <div><h3>🏷️ Marcação oficial</h3><p>Marque o Instagram oficial da Coza: <b>@cozadesign</b></p></div>
+      <div><h3>#️⃣ Hashtags</h3><p>Sem hashtag obrigatória.</p></div>
     </div>
-    <div class="oferta" style="margin-top:22px"><div><b>Oferta da Black</b><span class="ph">XXXX desconto, frete grátis, kit e prazo</span></div><div><b>Tom de voz</b>Natural, de indicação e com leveza</div></div>
+    <div class="oferta" style="margin-top:22px"><div><b>Oferta da Black</b>divulgada pela Coza no kickoff</div><div><b>Tom de voz</b>Natural, de indicação e com leveza</div></div>
   </div>
 </section>
 
@@ -422,7 +430,7 @@ const FORMATOS = [
  {em:'⭐',nome:'Lista do que vale a pena',tag:'Top 3 / Top 5',cor:'var(--verde)',
   passos:['Número no gancho: "5 itens que valem"','Um item por cena, com uso real','Nota ou motivo em uma frase','Fecha com o item que ela mais usa'],
   g:['5 coisas da Coza que valem cada centavo na Black.','Se você só puder comprar uma coisa na Black, compra essa.']},
- {em:'🎯',nome:'Teste A/B de gancho',tag:'Obrigatório · 2 versões',cor:'var(--preto)',claro:true,
+ {em:'🎯',nome:'Teste A/B de gancho',tag:'Opcional · bônus',cor:'var(--preto)',claro:true,
   passos:['Grava o corpo do vídeo uma vez só','Entrega dois inícios diferentes (0 a 3s)','Um gancho de problema, outro de curiosidade ou número','Nomeia os arquivos A e B pra gente rastrear'],
   g:['A: "Essa bagunça me dava vergonha."','B: "Gastei menos de R$100 e mudou minha cozinha."']}
 ];
@@ -437,10 +445,14 @@ document.getElementById('grade').innerHTML = PRODUTOS.map(p => `
    <a class="ver" href="${p.url}" target="_blank" rel="noopener">ver no site →</a></div>
  </article>`).join('');
 
+const gr=document.getElementById('grade');
+document.getElementById('prev').onclick=()=>gr.scrollBy({left:-gr.clientWidth*.8});
+document.getElementById('next').onclick=()=>gr.scrollBy({left:gr.clientWidth*.8});
 document.getElementById('filtros').addEventListener('click', e => {
   const b = e.target.closest('button'); if(!b) return;
   document.querySelectorAll('#filtros button').forEach(x => x.setAttribute('aria-pressed', x===b));
   document.querySelectorAll('.prod').forEach(c => c.hidden = b.dataset.f!=='todos' && c.dataset.t!==b.dataset.f);
+  gr.scrollTo({left:0});
 });
 
 document.getElementById('formatosGrid').innerHTML = FORMATOS.map((f,i) => `
