@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Briefing Black Coza 2026</title>
-<meta name="description" content="Briefing das creators para a Black Friday da Coza: produtos, formatos de vídeo, calendário e seu link com UTM.">
+<meta name="description" content="Briefing das creators para a Black Friday da Coza: produtos, formatos de vídeo, calendário e escopo.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -203,7 +203,7 @@ footer p{max-width:620px;color:#ccc}
 
 <div class="topo"><div class="wrap">
   <span>🛒 BLACK COZA · <b id="faltam">...</b></span>
-  <a href="#link">pegar meu link</a>
+  <a href="#escopo">ver o escopo</a>
 </div></div>
 
 <header class="hero">
@@ -224,7 +224,7 @@ footer p{max-width:620px;color:#ccc}
       <div><b id="ch">--</b><small>horas</small></div>
       <div><b id="cm">--</b><small>min</small></div>
     </div>
-    <div class="cta"><a class="btn" href="#formatos">ver os formatos</a> <a class="btn claro" href="#link">gerar meu link</a></div>
+    <div class="cta"><a class="btn" href="#formatos">ver os formatos</a> <a class="btn claro" href="#escopo">ver o escopo</a></div>
   </div>
   <div class="fita" aria-hidden="true" ><span>BLACK COZA ✦ 27/11 ✦ VÍDEO QUE VENDE ✦ MODO ✦ BRISA ✦ ZIP VÁCUO ✦ KITS ✦ BLACK COZA ✦ 27/11 ✦ VÍDEO QUE VENDE ✦ MODO ✦ BRISA ✦ ZIP VÁCUO ✦ KITS ✦ </span></div>
 </header>
@@ -365,27 +365,6 @@ footer p{max-width:620px;color:#ccc}
   </div>
 </section>
 
-<section id="link" >
-  <div class="wrap">
-    <span class="kicker">Link e cupom</span>
-    <h2>Seu link próprio. É assim que provamos que foi você.</h2>
-    <p class="lead">Cada creator recebe um link com UTM e, se a Coza liberar, um cupom com o seu nome. Sem isso ninguém consegue dizer qual criativo vendeu. Digite seu @ e copie.</p>
-    <div class="gerador">
-      <label for="nome">Seu @ no Instagram</label>
-      <input id="nome" type="text" placeholder="ex: eilaradam" autocomplete="off">
-      <div class="saida" id="saida" hidden>
-        <div class="box"><small>Link com UTM (use na bio e nos anúncios)</small><span id="outLink"></span><br><button class="btn claro" data-copy="outLink">copiar link</button></div>
-        <div class="box"><small>Cupom sugerido (vale só se a Coza liberar)</small><span id="outCupom"></span><br><button class="btn claro" data-copy="outCupom">copiar cupom</button></div>
-      </div>
-    </div>
-    <div class="oferta" style="margin-top:28px">
-      <div><b>Oferta</b>divulgada no kickoff</div>
-      <div><b>Estoque</b>produtos garantidos pela Coza</div>
-      <div><b>Anúncio</b>Partnership Ads pelo seu perfil</div>
-    </div>
-    <p class="nota">Você entrega criativos feitos pra performance e testáveis. A meta de venda depende também da oferta, da verba de mídia e do site da Coza.</p>
-  </div>
-</section>
 
 <footer>
   <div class="wrap">
@@ -518,16 +497,6 @@ tick(); setInterval(tick,30000);
 const hoje = new Date();
 document.querySelectorAll('.fase').forEach(f => {
   if(hoje>=new Date(f.dataset.ini+'T00:00:00-03:00') && hoje<=new Date(f.dataset.fim+'T23:59:59-03:00')) f.classList.add('hoje');
-});
-
-/* ===== link + cupom ===== */
-const slug = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]/g,'');
-document.getElementById('nome').addEventListener('input', e => {
-  const s = slug(e.target.value);
-  const box = document.getElementById('saida'); box.hidden = !s;
-  if(!s) return;
-  document.getElementById('outLink').textContent = `${SITE}?utm_source=instagram&utm_medium=creator&utm_campaign=blackcoza2026&utm_content=${s}`;
-  document.getElementById('outCupom').textContent = s.toUpperCase().slice(0,12) + 'COZA';
 });
 
 /* ===== copiar ===== */
