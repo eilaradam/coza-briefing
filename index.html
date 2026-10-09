@@ -599,10 +599,10 @@ prog();
 const FASES=[{k:'f1',n:'Aquecimento',d:'3 a 16/11',e:'✨'},{k:'f2',n:'Esquenta',d:'17 a 24/11',e:'📣'},{k:'f3',n:'Semana da BF',d:'25 a 30/11',e:'🔥'}];
 const FMT={a:'🧊 Antes e depois',c:'🛍️ Comprinhas da Black',z:'🧳 Demonstração do Zip Vácuo',m:'🧺 Montei minha cozinha com a Coza'};
 const CREATORS=[
- {n:'Cinthia',f:'f1',t:'a'},{n:'Camila',f:'f1',t:'a'},
+ {n:'Cinthia',f:'f1',t:'a'},{n:'Camila',f:'f1',t:'c'},
  {n:'Jessika Luisa',f:'f2',t:'c'},{n:'Elis Regina',f:'f2',t:'m'},{n:'Prissila Kieski',f:'f2',t:'z'},
  {n:'Mari Marchon',f:'f3',t:'z'},{n:'Julia Grazina',f:'f3',t:'m'},{n:'Lara Dam',f:'f3',t:'c'},
- {n:'Adelia',f:'f1',t:'c'},{n:'Dhiovanna',f:'f2',t:'m'}
+ {n:'Adelia',f:'f1',t:'a'},{n:'Dhiovanna',f:'f2',t:'m'}
 ];
 document.getElementById('desig').innerHTML=FASES.map(f=>`
  <div class="dcol ${f.k}"><div class="dh"><small>${f.e} ${f.d}</small><h3>${f.n}</h3></div>
